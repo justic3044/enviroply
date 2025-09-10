@@ -4,6 +4,9 @@ on:
   push:
     branches: [ "main" ]
 
+permissions:   # 👈 Add this
+  contents: write  # Allow pushing to gh-pages branch
+
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
@@ -19,15 +22,14 @@ jobs:
 
     - name: Install dependencies
       run: npm install
-      working-directory: ./project   # 👈 points to folder with package.json
+      working-directory: ./project   # adjust to your project folder
 
     - name: Build project
       run: npm run build
-      working-directory: ./project   # 👈 same here
+      working-directory: ./project
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./project/build  # 👈 build output path
-
+        publish_dir: ./project/build
