@@ -4,30 +4,35 @@ on:
   push:
     branches: [ "main" ]
 
-permissions:   # 👈 Add this
-  contents: write  # Allow pushing to gh-pages branch
+permissions:
+  contents: write   # allow pushing to gh-pages branch
 
 jobs:
-  build-deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
+    # 1️⃣ Checkout the repo
+    - name: Checkout repository
       uses: actions/checkout@v3
 
+    # 2️⃣ Setup Node.js
     - name: Setup Node
       uses: actions/setup-node@v3
       with:
-        node-version: 18
+        node-version: 16
 
+    # 3️⃣ Install dependencies
     - name: Install dependencies
-      run: npm install
-      working-directory: ./project   # adjust to your project folder
-
-    - name: Build project
-      run: npm run build
+      run: npm install --verbose
       working-directory: ./project
 
+    # 4️⃣ Build the React app
+    - name: Build React app
+      run: npm run build --if-present --verbose
+      working-directory: ./project
+
+    # 5️⃣ Deploy to GitHub Pages
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
