@@ -2,7 +2,7 @@ name: Deploy React App to GitHub Pages
 
 on:
   push:
-    branches: [ "main" ]   # or "master" if your repo uses master
+    branches: [ "main" ]
 
 jobs:
   build-deploy:
@@ -19,12 +19,14 @@ jobs:
 
     - name: Install dependencies
       run: npm install
+      working-directory: ./enviroply   # 👈 point to folder with package.json
 
     - name: Build project
       run: npm run build
+      working-directory: ./enviroply   # 👈 same here
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./build
+        publish_dir: ./enviroply/build  # 👈 output path after build
