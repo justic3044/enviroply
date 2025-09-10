@@ -19,14 +19,15 @@ jobs:
 
     - name: Install dependencies
       run: npm install
-      working-directory: ./enviroply   # 👈 point to folder with package.json
+      working-directory: ./project   # 👈 points to folder with package.json
 
     - name: Build project
       run: npm run build
-      working-directory: ./enviroply   # 👈 same here
+      working-directory: ./project   # 👈 same here
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./enviroply/build  # 👈 output path after build
+        publish_dir: ./project/build  # 👈 build output path
+
