@@ -1,0 +1,223 @@
+import React from 'react';
+import { Shield, Award, Users, Target, CheckCircle } from 'lucide-react';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
+
+const AboutPage = () => {
+  const values = [
+    {
+      icon: Shield,
+      title: 'Expertise',
+      description: 'Knowledgable about South African environmental health regulations and industry best practices.'
+    },
+    {
+      icon: Award,
+      title: 'Excellence',
+      description: 'Commitment to delivering high-quality services that exceed client expectations.'
+    },
+    {
+      icon: Users,
+      title: 'Partnership',
+      description: 'Building long-term relationships with clients based on trust and mutual success.'
+    },
+    {
+      icon: Target,
+      title: 'Results',
+      description: 'Focus on achieving measurable outcomes and sustainable compliance solutions.'
+    }
+  ];
+
+ const teamMembers = [
+    {
+      name: "Justice",
+      role: "Senior Environmental Health Practitioner",
+      description:
+        "Justice has over 10 months of experience in occupational health and safety, specializing in compliance audits and risk assessments.",
+      photo: "https://via.placeholder.com/150",
+    },
+    {
+      name: "Justin Smith",
+      role: "Consultant",
+      description:
+        "Justin brings 3 years of consulting expertise, focusing on food safety, environmental audits, and tailored compliance solutions.",
+      photo: "https://via.placeholder.com/150",
+    },
+    {
+      name: "Sarah Smith",
+      role: "Training Specialist",
+      description:
+        "Sarah has trained over 10 professionals, developing customized workshops and practical courses in environmental management.",
+      photo: "https://via.placeholder.com/150",
+    },
+  ];
+
+  const industries = [
+    'Restaurants & Food Service',
+    'Healthcare Facilities',
+    'Manufacturing & Industrial',
+    'Retail & Supermarkets',
+    'Hospitality',
+    'Educational Institutions',
+    'Government & Municipalities',
+    'Mining & Construction'
+  ];
+
+  return (
+    <div>
+      {/* Hero Section */}
+      <section className="bg-gradient-to-r from-teal-800 to-teal-700 text-white py-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl lg:text-5xl font-bold mb-6">
+              About EnviroHealth
+            </h1>
+            <p className="text-xl text-teal-100 leading-relaxed">
+             We help organisations meet regulatory standards, reduce environmental health-related risks and embed sustainable practices. 
+             </p>
+          </div>
+        </div>
+      </section>
+
+ 
+
+      {/* Our Story */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Story</h2>
+              {/*<p className="text-xl text-gray-600">
+                Background about us.
+               </p> */}
+            </div>
+            
+            <div className="bg-white rounded-xl shadow-lg p-8 lg:p-12">
+              <div className="prose prose-lg max-w-none">
+                <p className="text-gray-700 leading-relaxed mb-6">
+                  EnviroPly Environmental Health Solutions is a proudly South African consultancy founded by a team of qualified Environmental Health Practitioners. 
+                </p>
+                
+                <p className="text-gray-700 leading-relaxed mb-6">
+                 We specialize in bridging the gap between compliance and practice by offering expert services in food safety, compliance auditing, professional training, impact assessments, and waste management planning.
+                </p>
+                
+                <p className="text-gray-700 leading-relaxed">
+                 Guided by integrity, innovation, and a passion for healthier communities, we empower businesses, institutions, and municipalities to meet legal requirements while promoting sustainable, safe, and responsible environments.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Values */}
+      <section className="py-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Core Values</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              The principles that guide our work and define our commitment to clients
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {values.map((value, index) => {
+              const IconComponent = value.icon;
+              return (
+                <div key={index} className="text-center">
+                  <div className="bg-teal-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <IconComponent className="h-8 w-8 text-teal-700" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">{value.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">{value.description}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/*Industries */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Industries Served */}
+            <div className="bg-white rounded-xl shadow-lg p-8">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">Industries We Serve</h2>
+              <div className="grid grid-cols-2 gap-3">
+                {industries.map((industry, index) => (
+                  <div key={index} className="flex items-center">
+                    <div className="w-2 h-2 bg-orange-600 rounded-full mr-3"></div>
+                    <span className="text-gray-700 text-sm">{industry}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Team Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Expert Team</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Qualified Environmental Health Practitioners and consultants dedicated to your success
+            </p>
+          </div>
+
+         
+        {/* Slideshow Section */}
+        <div className="max-w-4xl mx-auto">
+          <Swiper
+            modules={[Pagination, Autoplay]}
+            spaceBetween={30}
+            centeredSlides={true}
+            autoplay={{ delay: 4000, disableOnInteraction: false }}
+            pagination={{ clickable: true }}
+            className="mySwiper"
+          >
+            {teamMembers.map((member, index) => (
+              <SwiperSlide key={index}>
+                <div className="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center text-center">
+                  <img
+                    src={member.photo}
+                    alt={member.name}
+                    className="w-32 h-32 rounded-full object-cover mb-4"
+                  />
+                  <h3 className="text-xl font-semibold text-gray-900">{member.name}</h3>
+                  <p className="text-teal-600 font-medium">{member.role}</p>
+                  <p className="text-gray-600 mt-3">{member.description}</p>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-teal-800 text-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold mb-4">
+            Ready to Work with Us?
+          </h2>
+          <p className="text-xl mb-8 text-teal-100">
+            Let's discuss how our expertise can help your business achieve compliance and operational excellence.
+          </p>
+          <a
+            href="/contact"
+            className="bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-orange-700 transition-colors duration-200 inline-block"
+          >
+            Get Started Today
+          </a>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default AboutPage;
