@@ -11,7 +11,7 @@ const Footer = () => {
           <div>
             <div className="flex items-center space-x-3 mb-4">
               <div className="bg-gray-900 flex justify-center items-center p-2">
-                <img src="\img\web_log.png" alt="Enviroply Logo" className="h-12 w-auto object-contain" />
+                <img src="/img/web_log.png" alt="Enviroply Logo" className="h-12 w-auto object-contain" />
               </div>              
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
