@@ -1,0 +1,51 @@
+name: Build and Deploy Enviroply
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Setup Node.js environment
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+          cache-dependency-path: ./package.json
+
+      # Install dependencies
+      - name: Install dependencies
+        run: npm install --verbose
+
+      # Build the project
+      - name: Build Vite app
+        run: npm run build --verbose
+
+      # Run a preview server briefly to ensure build works
+      - name: Preview Vite build (optional)
+        run: |
+          npm install -g serve
+          serve -s dist -l 5000 &
+          sleep 5
+          curl http://localhost:5000
+
+      # Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          force_orphan: true
+          commit_message: "Deploy Enviroply: ${{ github.event.head_commit.message || 'Manual build' }}"
