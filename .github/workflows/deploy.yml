@@ -40,10 +40,6 @@ jobs:
             exit 1
           fi
 
-      # 5️⃣ Report build status
-      - name: Report build status
-        run: echo "Build status: $BUILD_STATUS"
-
       # 6️⃣ Deploy to GitHub Pages (only if build succeeded)
       - name: Deploy to GitHub Pages
         if: env.BUILD_STATUS == 'success'
