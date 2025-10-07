@@ -26,7 +26,7 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">        
             <div>
-              <img src="\img\web_log.png" alt="Enviroply Logo" className="h-12 w-auto" />
+              <img src="/img/web_log.png" alt="Enviroply Logo" className="h-12 w-auto" />
             </div>
           </Link>
 
