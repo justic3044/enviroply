@@ -9,15 +9,15 @@ permissions:
   contents: write
 
 jobs:
-  build-and-deploy:
+  build-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout the repository
+      # 1️⃣ Checkout the repository
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Setup Node.js environment
+      # 2️⃣ Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -25,24 +25,28 @@ jobs:
           cache: 'npm'
           cache-dependency-path: ./package.json
 
-      # Install dependencies
+      # 3️⃣ Install dependencies
       - name: Install dependencies
         run: npm install --verbose
 
-      # Build the project
+      # 4️⃣ Build the project
       - name: Build Vite app
-        run: npm run build --verbose
-
-      # Run a preview server briefly to ensure build works
-      - name: Preview Vite build (optional)
+        id: build
         run: |
-          npm install -g serve
-          serve -s dist -l 5000 &
-          sleep 5
-          curl http://localhost:5000
+          if npm run build --verbose; then
+            echo "BUILD_STATUS=success" >> $GITHUB_ENV
+          else
+            echo "BUILD_STATUS=failure" >> $GITHUB_ENV
+            exit 1
+          fi
 
-      # Deploy to GitHub Pages
+      # 5️⃣ Report build status
+      - name: Report build status
+        run: echo "Build status: $BUILD_STATUS"
+
+      # 6️⃣ Deploy to GitHub Pages (only if build succeeded)
       - name: Deploy to GitHub Pages
+        if: env.BUILD_STATUS == 'success'
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
