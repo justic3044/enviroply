@@ -6,50 +6,27 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 const AboutPage = () => {
-  const values = [
-    {
-      icon: Shield,
-      title: 'Expertise',
-      description: 'Knowledgable about South African environmental health regulations and industry best practices.'
-    },
-    {
-      icon: Award,
-      title: 'Excellence',
-      description: 'Commitment to delivering high-quality services that exceed client expectations.'
-    },
-    {
-      icon: Users,
-      title: 'Partnership',
-      description: 'Building long-term relationships with clients based on trust and mutual success.'
-    },
-    {
-      icon: Target,
-      title: 'Results',
-      description: 'Focus on achieving measurable outcomes and sustainable compliance solutions.'
-    }
-  ];
-
- const teamMembers = [
+  const teamMembers = [
     {
       name: "Justice",
       role: "Senior Environmental Health Practitioner",
       description:
         "Justice has over 10 months of experience in occupational health and safety, specializing in compliance audits and risk assessments.",
-      photo: "https://via.placeholder.com/150",
+      photo: "https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D",
     },
     {
       name: "Justin Smith",
       role: "Consultant",
       description:
         "Justin brings 3 years of consulting expertise, focusing on food safety, environmental audits, and tailored compliance solutions.",
-      photo: "https://via.placeholder.com/150",
+      photo: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGVvcGxlfGVufDB8fDB8fHww",
     },
     {
       name: "Sarah Smith",
       role: "Training Specialist",
       description:
         "Sarah has trained over 10 professionals, developing customized workshops and practical courses in environmental management.",
-      photo: "https://via.placeholder.com/150",
+      photo: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGVvcGxlfGVufDB8fDB8fHww",
     },
   ];
 
@@ -111,34 +88,7 @@ const AboutPage = () => {
           </div>
         </div>
       </section>
-
-      {/* Our Values */}
-      <section className="py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Core Values</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              The principles that guide our work and define our commitment to clients
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((value, index) => {
-              const IconComponent = value.icon;
-              return (
-                <div key={index} className="text-center">
-                  <div className="bg-teal-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <IconComponent className="h-8 w-8 text-teal-700" />
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{value.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{value.description}</p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
+     
       {/*Industries */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
