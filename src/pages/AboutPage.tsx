@@ -30,17 +30,6 @@ const AboutPage = () => {
     },
   ];
 
-  const industries = [
-    'Restaurants & Food Service',
-    'Healthcare Facilities',
-    'Manufacturing & Industrial',
-    'Retail & Supermarkets',
-    'Hospitality',
-    'Educational Institutions',
-    'Government & Municipalities',
-    'Mining & Construction'
-  ];
-
   return (
     <div>
       {/* Hero Section */}
@@ -88,27 +77,7 @@ const AboutPage = () => {
           </div>
         </div>
       </section>
-     
-      {/*Industries */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-1 gap-1">
-            {/* Industries Served */}
-            <div className="bg-white rounded-xl shadow-lg p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Industries We Serve</h2>
-              <div className="grid grid-cols-2 gap-3">
-                {industries.map((industry, index) => (
-                  <div key={index} className="flex items-center">
-                    <div className="w-2 h-2 bg-orange-600 rounded-full mr-3"></div>
-                    <span className="text-gray-700 text-sm">{industry}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
+        
       {/* Team Section */}
       <section className="py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
