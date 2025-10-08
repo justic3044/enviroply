@@ -46,7 +46,7 @@ const ContactPage = () => {
     {
       icon: Mail,
       title: 'Email',
-      details: ['info@enviroply.co.za', 'info@enviroply.co.za'],
+      details: ['info@enviroply.co.za'],
       action: 'mailto:info@enviroply.co.za'
     },
     {
