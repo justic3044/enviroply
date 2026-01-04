@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Shield, ChevronDown } from 'lucide-react';
+import logoimport logo from './img/web_log.png';
+
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -26,7 +28,7 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">        
             <div>
-              <img src="https://drive.google.com/file/d/1YiDMNSwi8ZkPR1g3YwhmE8_io8dT3_iV/view?usp=sharing" alt="Enviroply Logo" className="h-12 w-auto" />
+              <img src="logo" alt="Enviroply Logo" className="h-12 w-auto" />
             </div>
           </Link>
 
