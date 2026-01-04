@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Shield, ChevronDown } from 'lucide-react';
-import logoimport logo from './img/web_log.png';
+import logo from './img/web_log.png';
 
 
 const Header = () => {
